@@ -1,0 +1,204 @@
+/* --- Root Variables: Untuk konsistensi warna tema AI/Informatika --- */
+:root {
+    --primary-color: #0a192f;   /* Biru gelap khas teknologi */
+    --accent-color: #64ffda;    /* Hijau cyan neon untuk kesan AI */
+    --text-light: #ccd6f6;      /* Warna teks terang */
+    --text-dark: #112240;       /* Warna teks gelap untuk kontras */
+    --bg-white: #ffffff;
+    --bg-light: #f4f7f6;
+    --transition: all 0.3s ease; /* Durasi animasi halus */
+}
+
+/* --- Global Reset: Menghapus margin/padding bawaan browser --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Agar padding tidak merusak lebar elemen */
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth; /* Efek scroll halus saat klik menu navigasi */
+}
+
+body {
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- Navigation: Membuat header melayang (Sticky) --- */
+header {
+    background: rgba(10, 25, 47, 0.95); /* Semi transparan */
+    backdrop-filter: blur(10px);        /* Efek kaca (Glassmorphism) */
+    padding: 1rem 5%;
+    position: fixed;                    /* Tetap di atas saat scroll */
+    width: 100%;
+    top: 0;
+    z-index: 1000;                      /* Pastikan di atas elemen lain */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;      /* Logo kiri, menu kanan */
+    align-items: center;
+}
+
+.logo {
+    color: var(--bg-white);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.logo span {
+    color: var(--accent-color);         /* Memberi warna berbeda pada teks "Lima" */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;                   /* Menghapus titik pada list */
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 400;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);         /* Berubah warna saat kursor menempel */
+}
+
+/* --- Hero Section: Bagian Pembuka yang besar --- */
+.hero-kelompok {
+    height: 100vh;                      /* Full satu layar */
+    background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), 
+                url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding-top: 80px;
+}
+
+.hero-overlay h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.btn-cek {
+    display: inline-block;
+    padding: 12px 30px;
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-cek:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);        /* Efek warna terbalik saat hover */
+}
+
+/* --- Section Containers: Pengaturan umum setiap bagian --- */
+.section-container {
+    padding: 80px 10%;
+}
+
+.bg-light { background-color: var(--bg-light); }
+.bg-white { background-color: var(--bg-white); }
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title::after {                /* Garis bawah di judul */
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: var(--accent-color);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* --- Kelompok Grid: Membuat kartu sejajar --- */
+.kelompok-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsif otomatis */
+    gap: 25px;                          /* Jarak antar kartu */
+}
+
+.kelompok-card {
+    background: white;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 15px;
+    overflow: hidden;                   /* Agar gambar tidak keluar dari border-radius */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.kelompok-card:hover {
+    transform: translateY(-10px);       /* Kartu naik sedikit saat hover */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.card-img img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;                  /* Gambar proporsional meski ukuran beda */
+}
+
+.card-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-info h3 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+/* --- Makalah & Video Containers: Pengaturan PDF dan Video --- */
+.pdf-container, .video-container {
+    width: 100%;
+    height: 500px;                      /* Tinggi kotak tampilan */
+    border-radius: 10px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.content-desc, .video-desc {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* --- Footer: Bagian paling bawah --- */
+footer {
+    background: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+
+/* --- Responsivitas: Agar rapi di HP --- */
+@media (max-width: 768px) {
+    .nav-links { display: none; }       /* Sembunyikan menu di HP (perlu JS untuk menu hamburger) */
+    .hero-overlay h1 { font-size: 2.5rem; }
+    .section-container { padding: 50px 5%; }
+}
